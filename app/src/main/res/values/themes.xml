@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ToDoSQLite" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/pink</item>
+        <item name="colorPrimaryVariant">@color/pink</item>
+        <item name="android:statusBarColor">@color/pink</item>
+    </style>
+
+    <!-- Main theme for the app -->
+    <style name="Theme.ToDoSQLite" parent="Base.Theme.ToDoSQLite" />
+</resources>
