@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
+// Adapter class for the RecyclerView
 class TaskAdapter(private var tasks: List<Task>, private val context: Context) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     private  val db: TaskDatabaseHelper = TaskDatabaseHelper(context)
@@ -21,6 +22,7 @@ class TaskAdapter(private var tasks: List<Task>, private val context: Context) :
         val deleteButton :ImageView = itemView.findViewById(R.id.deleteButton)
     }
 
+    // Called when RecyclerView needs a new ViewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.task_item, parent, false)
         return TaskViewHolder(view)
@@ -28,6 +30,7 @@ class TaskAdapter(private var tasks: List<Task>, private val context: Context) :
 
     override fun getItemCount(): Int = tasks.size
 
+    // Called to display the data at the specified position
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val task = tasks[position]
         holder.titleTextView.text = task.title

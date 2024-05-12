@@ -9,7 +9,7 @@ class UpdateTaskActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityUpdataTaskBinding
     private lateinit var db: TaskDatabaseHelper
-    private var taskId: Int = -1
+    private var taskId: Int = -1 // Variable to hold task ID, initialized to -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,13 +18,16 @@ class UpdateTaskActivity : AppCompatActivity() {
 
         db = TaskDatabaseHelper(this)
 
+        // Get task ID passed from previous activity
         taskId = intent.getIntExtra("task_id", -1)
 
+        // Check if task ID is valid, if not, finish activity
         if(taskId == -1){
             finish()
             return
         }
 
+        // Retrieve task details from database using task ID
         val task = db.getTaskBYId(taskId)
         binding.updatetitleEditText.setText(task.title)
         binding.updatecontentEditText.setText(task.content)
